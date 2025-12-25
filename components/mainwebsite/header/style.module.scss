@@ -1,0 +1,1143 @@
+// Variables
+$gold-primary: #FFD700;
+$gold-secondary: #FFA500;
+$blue-primary: #1e3a8a;
+$blue-secondary: #3b82f6;
+$blue-dark: #0f172a;
+$black: #000000;
+$white: #ffffff;
+$gray-light: #f8f9fa;
+$gray-border: #e5e7eb;
+$gray-medium: #9ca3af;
+$gray-dark: #404040;
+$brown-orange: #d97706;
+$peach-light: #FFF5E6;
+
+// Font Family
+$font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  font-family: $font-family;
+}
+
+// Main Header
+.mainHeader {
+  background: linear-gradient(135deg, $blue-dark 0%, #0a1220 100%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid rgba($gold-primary, 0.2);
+}
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+
+  @media (max-width: 1200px) {
+    padding: 1rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 1rem 1.5rem;
+    justify-content: space-between;
+  }
+}
+
+// Logo Section
+.logoSection {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+
+  @media (max-width: 1024px) {
+    order: 1;
+  }
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.logoImage {
+  height: 50px;
+  width: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+// Search Section
+.searchSection {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    max-width: 300px;
+    order: 3;
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  background: $white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-family: $font-family;
+  color: $blue-dark;
+  outline: none;
+  transition: all 0.3s ease;
+
+  &::placeholder {
+    color: $gray-medium;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba($gold-primary, 0.2);
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $gray-medium;
+  pointer-events: none;
+}
+
+// Gender Selection
+.genderSelection {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.genderButton {
+  background: transparent;
+  border: none;
+  color: $white;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: $font-family;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $gold-primary;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: $gold-primary;
+  }
+}
+
+.genderButtonActive {
+  color: $gold-primary;
+
+  &::after {
+    width: 100%;
+  }
+}
+
+// Navigation Section
+.navSection {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.iconGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.iconButton {
+  background: transparent;
+  border: 1.5px solid $white;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border-radius: 4px;
+  width: 34px;
+  height: 34px;
+  
+  &:hover {
+    color: $gold-primary;
+    border-color: $gold-primary;
+    background-color: rgba($gold-primary, 0.1);
+  }
+  
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navItem {
+  position: relative;
+  
+  // Create hover area that includes the gap
+  &::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 0.75rem;
+    background: transparent;
+  }
+}
+
+.navLink {
+  color: $white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+  padding: 0.5rem 0;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  
+  &:hover {
+    color: $gold-primary;
+  }
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $gold-primary;
+    transition: width 0.3s ease;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.dropdownArrow {
+  transition: transform 0.3s ease;
+}
+
+.navItem:hover .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+// Dropdown Menu
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: $white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  min-width: 220px;
+  z-index: 1000;
+  animation: fadeInDown 0.3s ease;
+  pointer-events: auto;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownLink {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: $blue-dark;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: $font-family;
+
+  &:hover {
+    background: rgba($gold-primary, 0.1);
+    color: $blue-primary;
+    padding-left: 1.5rem;
+  }
+}
+
+// Action Buttons
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
+}
+
+.enquiryButton {
+  border: 2px solid $gold-primary;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  font-family: $font-family;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  background: linear-gradient(135deg, $gold-primary 0%, rgba($gold-secondary, 0.9) 100%);
+  color: $blue-dark;
+  box-shadow: 0 4px 15px rgba($gold-primary, 0.3);
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  &:hover {
+    background: linear-gradient(135deg, rgba($gold-primary, 0.95) 0%, $gold-secondary 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba($gold-primary, 0.5);
+    border-color: $gold-secondary;
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 12px rgba($gold-primary, 0.4);
+  }
+}
+
+.loginButton {
+  border: 2px solid rgba($white, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  font-family: $font-family;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  background: transparent;
+  color: $white;
+  
+  &:hover {
+    background: rgba($white, 0.15);
+    border-color: rgba($white, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .container {
+    padding: 1rem 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .navList {
+    gap: 1.5rem;
+  }
+  
+  .navLink {
+    font-size: 0.8125rem;
+  }
+
+  .actionButtons {
+    gap: 0.5rem;
+  }
+
+  .enquiryButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .loginButton {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0.875rem 1rem;
+    gap: 1rem;
+  }
+  
+  .logoSection {
+    flex-shrink: 0;
+  }
+
+  .logoImage {
+    height: 45px;
+    width: auto;
+  }
+
+  .navSection {
+    gap: 0.75rem;
+  }
+
+  .actionButtons {
+    gap: 0.5rem;
+  }
+
+  .enquiryButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .loginButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem 1rem;
+  }
+
+  .logoImage {
+    height: 40px;
+  }
+
+  .enquiryButton {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+  }
+
+  .loginButton {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+  }
+}
+
+// Modal Styles
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1.5rem;
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalContent {
+  background: linear-gradient(135deg, rgba($gray-light, 0.95) 0%, rgba($white, 0.98) 100%);
+  border-radius: 24px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5), 0 15px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUpScale 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba($gray-border, 0.8);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($gray-light, 0.8);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($gray-medium, 0.4);
+    border-radius: 10px;
+
+    &:hover {
+      background: rgba($gray-medium, 0.6);
+    }
+  }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    max-height: 96vh;
+    border-radius: 20px;
+  }
+}
+
+@keyframes slideUpScale {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: $white;
+  border: 2px solid rgba($gray-border, 0.5);
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  color: $gray-dark;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: rgba($gray-medium, 0.1);
+    border-color: rgba($gray-medium, 0.4);
+    color: $blue-dark;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: rotate(90deg) scale(0.95);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5;
+  }
+
+  @media (max-width: 768px) {
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 36px;
+    height: 36px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.modalHeader {
+  padding: 3rem 2.5rem 2rem 2.5rem;
+  text-align: center;
+  background: linear-gradient(135deg, rgba($gray-light, 0.6) 0%, rgba($white, 0.8) 100%);
+  border-bottom: 1px solid rgba($gray-border, 0.6);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba($gray-medium, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, rgba($gray-medium, 0.3), transparent);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2.5rem 2rem 1.5rem 2rem;
+  }
+}
+
+.modalTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: $blue-dark;
+  margin: 0 0 1rem 0;
+  font-family: $font-family;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.modalSubtitle {
+  font-size: 1.0625rem;
+  color: $gray-dark;
+  margin: 0;
+  font-family: $font-family;
+  font-weight: 500;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+}
+
+.modalBody {
+  padding: 2.5rem 2.5rem 3rem 2.5rem;
+  overflow-y: auto;
+  flex: 1;
+  background: rgba($gray-light, 0.3);
+
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($gray-light, 0.8);
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($gray-medium, 0.4);
+    border-radius: 10px;
+
+    &:hover {
+      background: rgba($gray-medium, 0.6);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 2rem 2.5rem 2rem;
+  }
+}
+
+// Mobile Menu Styles
+.mobileMenuButton {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+  position: relative;
+  order: 2;
+
+  @media (max-width: 1024px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+
+  span {
+    width: 100%;
+    height: 2.5px;
+    background: $white;
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+  }
+
+  &.hamburgerOpen {
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+}
+
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10001;
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0;
+}
+
+.mobileMenu {
+  background: linear-gradient(135deg, rgba($white, 0.98) 0%, rgba($gray-light, 0.95) 100%);
+  width: 85%;
+  max-width: 420px;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: -4px 0 30px rgba(0, 0, 0, 0.3), -2px 0 10px rgba(0, 0, 0, 0.2);
+  animation: slideInRight 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba($gray-border, 0.3);
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba($gray-light, 0.5);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($gray-medium, 0.4);
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba($gray-medium, 0.6);
+    }
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.mobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 2px solid rgba($gray-border, 0.4);
+  background: linear-gradient(135deg, rgba($blue-dark, 0.05) 0%, rgba($white, 0.95) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mobileLogo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.mobileMenuClose {
+  background: $white;
+  border: 2px solid rgba($gray-border, 0.6);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: $gray-dark;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background: rgba($blue-primary, 0.1);
+    border-color: rgba($blue-primary, 0.4);
+    color: $blue-primary;
+    transform: rotate(90deg) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: rotate(90deg) scale(0.95);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 2.5;
+  }
+}
+
+.mobileMenuContent {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  background: rgba($white, 0.5);
+}
+
+.mobileGenderSelection {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem;
+  background: rgba($gray-light, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba($gray-border, 0.4);
+}
+
+.mobileGenderButton {
+  flex: 1;
+  padding: 0.875rem 1rem;
+  background: $white;
+  border: 2px solid rgba($gray-border, 0.6);
+  border-radius: 10px;
+  color: $gray-dark;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: $font-family;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    border-color: rgba($blue-primary, 0.5);
+    background: rgba($blue-primary, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba($blue-primary, 0.15);
+  }
+}
+
+.mobileGenderButtonActive {
+  background: linear-gradient(135deg, rgba($blue-primary, 0.15), rgba($blue-secondary, 0.12));
+  border-color: $blue-primary;
+  color: $blue-primary;
+  box-shadow: 0 0 0 3px rgba($blue-primary, 0.2), 0 4px 12px rgba($blue-primary, 0.2);
+  transform: translateY(-2px);
+}
+
+.mobileNav {
+  margin-bottom: 2rem;
+}
+
+.mobileNavList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobileNavItem {
+  width: 100%;
+}
+
+.mobileNavLink {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.125rem 1.5rem;
+  background: $white;
+  border: 1px solid rgba($gray-border, 0.4);
+  border-radius: 12px;
+  color: $blue-dark;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: $font-family;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    background: rgba($blue-primary, 0.08);
+    border-color: rgba($blue-primary, 0.4);
+    color: $blue-primary;
+    transform: translateX(4px);
+    box-shadow: 0 4px 8px rgba($blue-primary, 0.15);
+  }
+
+  &:active {
+    transform: translateX(2px);
+  }
+}
+
+.mobileDropdownArrow {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+.mobileDropdownArrowOpen {
+  transform: rotate(180deg);
+}
+
+.mobileDropdownMenu {
+  list-style: none;
+  padding: 0.5rem;
+  margin: 0.5rem 0 1rem 0;
+  background: rgba($gray-light, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  animation: slideDown 0.3s ease;
+  border: 1px solid rgba($gray-border, 0.3);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobileDropdownLink {
+  display: block;
+  padding: 0.9375rem 1.5rem;
+  color: $gray-dark;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: $font-family;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 3px solid transparent;
+  border-radius: 8px;
+  margin-bottom: 0.25rem;
+
+  &:hover {
+    background: rgba($blue-primary, 0.1);
+    color: $blue-primary;
+    border-left-color: $blue-primary;
+    padding-left: 1.75rem;
+    transform: translateX(4px);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.mobileActionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba($gray-border, 0.5);
+}
+
+.mobileEnquiryButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: $font-family;
+  color: $blue-dark;
+  background: linear-gradient(135deg, $gold-primary 0%, rgba($gold-secondary, 0.95) 100%);
+  border: 2px solid $gold-primary;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba($gold-primary, 0.35);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba($gold-primary, 0.5);
+    background: linear-gradient(135deg, rgba($gold-primary, 0.95) 0%, $gold-secondary 100%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.mobileLoginButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: $font-family;
+  color: $blue-dark;
+  background: transparent;
+  border: 2px solid rgba($gray-border, 0.8);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba($gray-light, 0.6);
+    border-color: rgba($gray-medium, 0.6);
+  }
+}
+
+// Hide desktop nav on mobile
+@media (max-width: 1024px) {
+  .navSection {
+    display: none;
+  }
+
+  .searchSection {
+    flex: 1;
+    max-width: none;
+    margin: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchSection {
+    display: none;
+  }
+}
