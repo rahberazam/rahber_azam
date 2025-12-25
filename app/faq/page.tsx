@@ -23,7 +23,7 @@ export default function FAQPage() {
       answer: (
         <>
           <p className="mb-2">
-            Our skincare experts think that the treatment is unsafe for those who have
+            Our skincare experts think that the treatment is unsafe for those who have test test
           </p>
           <ul>
             <li>An active rash</li>
